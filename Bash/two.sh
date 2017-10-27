@@ -1,25 +1,24 @@
 #!/bin/sh
-# Given two integers, find their sum, difference, product, and quotient
+# Print your username (without hardcoding the name), and then print the
+# numbers 1 to 10
 
-# ----- Numbers are passed as arguments or prompted from user-----
-if [ ! -z "$1" ] && [ ! -z "$2" ]
-    then
-        integer1=$1
-        integer2=$2
-    else
-        echo "Enter an integer: "
-        read integer1
-        echo "Enter another integer: "
-        read integer2
-fi
+# $USER refers to the environment variable that exists in all shell sessions
+echo "Hello $USER\n"
 
-# ----- Calculations (Using different methods of evaluating variables)-----
-sum=$(($integer1+$integer2))
-difference=$[$integer1-$integer2]
-let product=$integer1*$integer2
-quotient=`echo "$integer1/$integer2" | bc -l`
+for ((i=1;i<=10;i+=1))
+do
+	echo $i
+done
 
-echo "Sum: $sum"
-echo "Difference: $difference"
-echo "Product: $product"
-echo "Quotient: $quotient"
+# ----- Alternative Options -----
+# Below, you can simply find other ways to iterate through a list of numbers
+
+# for i in {1..10}
+# do
+# 	echo $i
+# done
+
+# for i in 1 2 3 4 5 6 7 8 9 10
+# do
+# 	echo $i
+# done

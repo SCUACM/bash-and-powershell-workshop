@@ -1,22 +1,25 @@
 #!/bin/sh
-# Given two similar files, find the difference between the two and write to a
-# new file
+# Given two integers, find their sum, difference, product, and quotient
 
-if [ -z "$1" ] || [ -z "$2" ]
+# ----- Numbers are passed as arguments or prompted from user-----
+if [ ! -z "$1" ] && [ ! -z "$2" ]
     then
-        echo "ERROR: Two arguments are required"
-        exit
+        integer1=$1
+        integer2=$2
+    else
+        echo "Enter an integer: "
+        read integer1
+        echo "Enter another integer: "
+        read integer2
 fi
 
-if [[ -f "out.txt" ]]
-    then
-        rm out.txt
-fi
+# ----- Calculations (Using different methods of evaluating variables)-----
+sum=$(($integer1+$integer2))
+difference=$[$integer1-$integer2]
+let product=$integer1*$integer2
+quotient=`echo "$integer1/$integer2" | bc -l`
 
-diff $1 $2 -y >> out.txt
-
-# 1. diff $1, $2
-# 2. >> out.txt
-# 3. Do not want to keep appending to out.txt
-# 4. This text is ugly ... let's use "man" to figure out how to do this better
-# 5. Quit the program if you do not have two inputs
+echo "Sum: $sum"
+echo "Difference: $difference"
+echo "Product: $product"
+echo "Quotient: $quotient"
