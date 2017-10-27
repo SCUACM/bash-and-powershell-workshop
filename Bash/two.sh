@@ -5,6 +5,7 @@
 # $USER refers to the environment variable that exists in all shell sessions
 echo "Hello $USER\n"
 
+# Iterate 10 times and print the variable i each iteration
 for ((i=1;i<=10;i+=1))
 do
 	echo $i

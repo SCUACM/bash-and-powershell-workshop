@@ -1,8 +1,8 @@
 #!/bin/sh
 # Make a directory, and create a text file in that directory
 
-mkdir test
-cd test
+mkdir ./script-resources/test
+cd ./script-resources/test
 touch example.txt
 
 # ----- Alternative Options -----
