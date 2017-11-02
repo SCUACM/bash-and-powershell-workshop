@@ -19,13 +19,22 @@ it to a cmdlet to measure the number of lines
 
 #>
 
-Get-Content -Path $path1 | Measure-Object -Line
+#Get-Content -Path $path1 | Measure-Object -Line
+
+$counts = @()
 
 If($path2) {
   Set-Location -Path $path2
   $files = Get-ChildItem -recurse
   foreach ($file in $files) {
-    Get-Content $file | Measure-Object -Line
+    $counts+=Get-Content $file | Measure-Object -Line
   }
   Set-Location -Path ..
 }
+
+$total = 0
+foreach($number in $counts.Lines) {
+ $total++
+}
+
+"Total lines: $total"
