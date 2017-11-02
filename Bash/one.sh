@@ -1,21 +1,10 @@
 #!/bin/sh
+# Make a directory, and create a text file in that directory
 
-# Hello, {user} \n {for-loop printing out numbers 1-10}
-
-echo "Hello $USER\n"
-
-for ((i=1;i<=10;i+=1))
-do
-	echo $i
-done
+mkdir ./script-resources/test
+cd ./script-resources/test
+touch example.txt
 
 # ----- Alternative Options -----
-# for i in {1..10}
-# do
-# 	echo $i
-# done
-
-# for i in 1 2 3 4 5 6 7 8 9 10
-# do
-# 	echo $i
-# done
+# If you want to append to that text file, you can run the below command too
+# echo "random information for the example text file!" >> example.txt
